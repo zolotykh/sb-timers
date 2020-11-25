@@ -1,0 +1,26 @@
+.timers {
+  padding: 30px;
+  text-align: center;
+}
+
+.timers__controls {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 -6px;
+  padding: 0;
+}
+
+.timers__control {
+  padding: 0 6px;
+}
+
+.timers__log {
+  font-family: var(--font-family--monospace), source-code-pro, Menlo, Monaco,
+    Consolas, "Courier New", monospace;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 5px 7px;
+  height: 30vh;
+  width: 100%;
+}
