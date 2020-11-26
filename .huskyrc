@@ -1,0 +1,6 @@
+{
+    "hooks": {
+        "pre-commit": "pretty-quick --staged && git add . && lint-staged",
+        "pre-push": "cross-env CI=true yarn test"
+    }
+}
