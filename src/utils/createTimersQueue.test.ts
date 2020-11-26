@@ -42,6 +42,30 @@ describe("createTimersQueue", () => {
 
     expect(timerCallback1).not.toBeCalled();
   });
+
+  it("run timer after clear queue", () => {
+    jest.useFakeTimers();
+
+    const timerCallback1 = jest.fn();
+    const timerCallback2 = jest.fn();
+    const timerCallback3 = jest.fn();
+
+    queue.add(timerCallback1, 100);
+    queue.add(timerCallback2, 200);
+
+    queue.clear();
+
+    jest.runAllTimers();
+
+    expect(timerCallback1).not.toBeCalled();
+    expect(timerCallback2).not.toBeCalled();
+
+    queue.add(timerCallback3, 300);
+
+    jest.runAllTimers();
+
+    expect(timerCallback3).toBeCalled();
+  });
 });
 
 export {};
