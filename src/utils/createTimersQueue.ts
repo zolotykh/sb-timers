@@ -47,7 +47,7 @@ export function createTimersQueue(): IQueueAPI {
   let currentTimerId: number | undefined;
 
   const add: TAdd = (callback, wait) => {
-const next = () => {
+    const next = () => {
       if (queue[cursor]) {
         queue[cursor]();
         cursor++;
