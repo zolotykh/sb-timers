@@ -12,7 +12,6 @@ describe("createTimersQueue", () => {
 
     const timerCallback1 = jest.fn();
     const timerCallback2 = jest.fn();
-    const timerCallback3 = jest.fn();
 
     queue.add(timerCallback1, 0);
     queue.add(timerCallback2, 0);
