@@ -23,10 +23,11 @@ export const Control: FC<IControlProps> = ({ id, time }) => {
         time,
         log: ctx.log,
         enqueue: ctx.addTimer,
-        // eslint-disable-next-line
       }),
+    // observe only props
+    // eslint-disable-next-line
     [id, time],
-  ); // observe only props
+  );
 
   return (
     <li className={ctx.controlClassName}>
