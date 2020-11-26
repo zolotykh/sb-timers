@@ -78,6 +78,7 @@ export function createTimersQueue(): IQueueAPI {
    */
   const clear = () => {
     clearTimeout(currentTimerId);
+    currentTimerId = undefined;
     queue.length = 0;
     cursor = 0;
   };
