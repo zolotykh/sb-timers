@@ -30,7 +30,7 @@ export interface IQueueAPI {
 type TTimerInitializer = () => void;
 
 export function createTimersQueue(): IQueueAPI {
-  const queue: TTimerInitializer[] = [];
+  const queue: Array<TTimerInitializer | null> = [];
   /**
    * Cursor to actual timer initializer in the queue.
    * It should be incremented after firing timer initializer.
@@ -49,7 +49,9 @@ export function createTimersQueue(): IQueueAPI {
   const add: TAdd = (callback, wait) => {
     const next = () => {
       if (queue[cursor]) {
-        queue[cursor]();
+        queue[cursor]!();
+        // Clear used initializer
+        queue[cursor] = null;
         cursor++;
       }
     };
