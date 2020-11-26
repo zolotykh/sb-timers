@@ -5,14 +5,14 @@ export interface IControlsContext {
   /**
    * CSS module className
    */
-  controlStyle: string;
+  controlClassName: string;
 
   log(value: string): void;
   addTimer: TAdd;
 }
 
 export const ControlsContext = createContext<IControlsContext>({
-  controlStyle: "",
+  controlClassName: "",
 
   log() {},
   addTimer() {},

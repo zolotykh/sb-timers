@@ -16,16 +16,20 @@ interface IControlProps {
 
 export const Control: FC<IControlProps> = ({ id, time }) => {
   const ctx = useContext(ControlsContext);
-  const onClick = useMemo(() => createPlanner({
-    id,
-    time,
-    log: ctx.log,
-    enqueue: ctx.addTimer,
-    // eslint-disable-next-line
-  }), [id, time]); // observe only props
+  const onClick = useMemo(
+    () =>
+      createPlanner({
+        id,
+        time,
+        log: ctx.log,
+        enqueue: ctx.addTimer,
+        // eslint-disable-next-line
+      }),
+    [id, time],
+  ); // observe only props
 
   return (
-    <li className={ctx.controlStyle}>
+    <li className={ctx.controlClassName}>
       <Button text={`Кнопка ${id}`} onClick={onClick} />
     </li>
   );

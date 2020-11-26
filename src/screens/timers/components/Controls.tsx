@@ -13,31 +13,25 @@ interface IControlsProps {
   /**
    * CSS modules className
    */
-  controlStyle: string;
+  controlClassName: string;
 
   clear: TClear;
   addTimer: TAdd;
   log(value: string): void;
 }
 
-export const Controls: FC<IControlsProps> = ({
-  children,
-  style,
-  controlStyle,
-  clear,
-  log,
-  addTimer,
-}) => {
-  const contextValue: IControlsContext = useMemo(
-    () => ({ log, controlStyle, addTimer }),
-    [log, controlStyle, addTimer]
-  );
+export const Controls: FC<IControlsProps> = ({ children, style, controlClassName, clear, log, addTimer }) => {
+  const contextValue: IControlsContext = useMemo(() => ({ log, controlClassName, addTimer }), [
+    log,
+    controlClassName,
+    addTimer,
+  ]);
 
   return (
     <ControlsContext.Provider value={contextValue}>
       <ul className={style}>
         {children}
-        <li className={controlStyle}>
+        <li className={controlClassName}>
           <Button text="Сбросить" onClick={clear} />
         </li>
       </ul>

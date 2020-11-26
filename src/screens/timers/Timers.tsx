@@ -13,7 +13,7 @@ export const Timers = () => {
         clear={clear}
         addTimer={add}
         style={styles.timers__controls}
-        controlStyle={styles.timers__control}
+        controlClassName={styles.timers__control}
         log={log}
       >
         <Control id={1} time={1000} />
@@ -23,11 +23,7 @@ export const Timers = () => {
 
       <h3>Лог</h3>
 
-      <textarea
-        readOnly={true}
-        className={styles.timers__log}
-        value={output}
-      />
+      <textarea readOnly={true} className={styles.timers__log} value={output} />
     </div>
   );
 };
